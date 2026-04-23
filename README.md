@@ -4,29 +4,36 @@
 
 An AI teammate that joins every call, files Jira tickets, Slacks the follow-ups, and books the next meeting.
 
-## What it does
+## Stack
 
-- **Joins every call** — Zoom, Meet, Teams. No plugins, no prompts, no fuss.
-- **Takes action, not notes** — Creates tickets, sends follow-ups, schedules next steps automatically.
-- **Connects to your stack** — Jira, Linear, Notion, Slack, Gmail. All wired up on day one.
+- **Next.js 15** (App Router) · TypeScript strict
+- **Tailwind v4** (`@tailwindcss/postcss`, CSS-first, no config file)
+- `next/font/google` for Inter
+- `pnpm` lockfile committed
 
-## Why
+## Run locally
 
-Productivity. Part of a 20-product exploration of high-demand consumer and SMB markets.
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Deploy
+
+Zero config on Vercel — Next.js is auto-detected. No environment variables required. Push to `main` and Vercel builds automatically.
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page — hero, demo widget, features, CTA |
+| `/try` | Paste a meeting transcript → 3 mocked action items with owner + due date |
+| `/api/waitlist` | POST `{ email }` → forwards to waitlist-api-sigma with `product: "followy"` |
 
 ## Status
 
-Landing page live. Product in planning.
+**v0 skeleton** — landing preserved + `/try` demo wired. Product in planning.
 
-- **Live**: https://mukundakatta.github.io/followy/
-
-## Stack (when built)
-
-- Next.js 16 (App Router)
-- Supabase for auth + data
-- Stripe for payments
-- Deployed on Vercel
-
-## Local preview
-
-Just open `index.html` in a browser — it is a static landing page with the Tailwind CDN.
+- Live: https://followy.vercel.app
